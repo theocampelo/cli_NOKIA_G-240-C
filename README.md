@@ -1,7 +1,7 @@
 Remote CLI NOKIA G-240-C Project
 
 I've tried accessing it via terminal-based web-browsers but none really worked out because of JS interactions
-(of course I could've used a proxy, I guess, that would probably have made things
+(of course I could've used a proxy, VPN or DMZ I guess, that would probably have made things
 quite a bit easier, but not quite as fun, though)
 
 Notes:
