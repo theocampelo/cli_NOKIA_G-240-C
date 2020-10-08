@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 import sys
 
+# desabilita os avisos de certificado SSL inválido
 requests.packages.urllib3.disable_warnings()
 
 def err():
@@ -43,12 +44,12 @@ else:
 		err()
 
 	# VALIDATE INPUTS -- TEST	
-	print(str(type(LAN_PORT_END)) + '->' + HOST)
-	print(str(type(LAN_PORT_END)) + '->' + WAN_PORT_START)
-	print(str(type(LAN_PORT_END)) + '->' + WAN_PORT_END)
-	print(str(type(LAN_PORT_END)) + '->' + LAN_PORT_START)
+	print(str(type(HOST)) + '->' + HOST)
+	print(str(type(WAN_PORT_START)) + '->' + WAN_PORT_START)
+	print(str(type(WAN_PORT_END)) + '->' + WAN_PORT_END)
+	print(str(type(LAN_PORT_START)) + '->' + LAN_PORT_START)
 	print(str(type(LAN_PORT_END)) + '->' + LAN_PORT_END)
-	print(str(type(LAN_PORT_END)) + '->' + PROTO, end='\n')
+	print(str(type(PROTO)) + '->' + PROTO, end='\n')
 
 url = 'https://192.168.1.254/'
 session = requests.session()
@@ -95,7 +96,7 @@ def login():
 
 	data = {
 		'userhash':'PwdGep7A3OxgQyzHHrBpghnVmZxhHGTvjbVLlCptjCI.',	# esses valores são gerados pelo código da cgi do login
-		'response':'53ItLLmtl8L8iWJaTyBVvHgFuh63F2Bw6l1Q4_IKkok.',
+		'response':'53ItLLmtl8L8iWJaTyBVvHgFuh63F2Bw6l1Q4_IKkok.',	# hardcoded não funcionam depois que os tokens expiram
 		'nonce':'BUZQttpvPDRPgwK-3QuXlpv0ohrKhfnNk96XNt2OPKs.',
 		'enckey':'JzLBX9KUcRwSzjTPi-bQRw..',
 		'enciv':'CdOFNZZdASMt5nycQk2jkg'
@@ -147,7 +148,7 @@ def forward_port(HOST, WAN_PORT_START, WAN_PORT_END, LAN_PORT_START, LAN_PORT_EN
 	
 	return response
 
-# Terminar método delete
+# terminar método delete
 def delete_port():
 	print('_delete_port')
 
@@ -166,7 +167,8 @@ def delete_port():
 login()
 print('* Requesting port forwarding')
 forward = forward_port(HOST, WAN_PORT_START, WAN_PORT_END, LAN_PORT_START, LAN_PORT_END, PROTO)
-print(get_page().content)
+
+print(get_page().content)	# teste de login (busca a página depois de logado)
 
 print(f'* Post request status: {forward.status_code}')
 print('\nDone')
