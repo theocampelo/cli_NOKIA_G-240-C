@@ -1,4 +1,4 @@
-Remote NOKIA G-240-C Project
+Remote CLI NOKIA G-240-C Project
 
 I've tried accessing it via terminal-based web-browsers but none really worked out because of JS interactions
 (of course I could've used a proxy, I guess, that would probably have made things
