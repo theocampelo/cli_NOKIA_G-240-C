@@ -19,7 +19,7 @@ Currently working on:
 * Deleting port forwarding rules (simple GET request with url ID parameters) / Parse HTML to get the id
 
 TODO:
-* Rewrite encryption algorythms to generate valid CSFR token and nonce/unique strings/hashes in PYTHON (currently run in JS)
+* Rewrite encryption algorithms to generate valid CSFR token and nonce/unique strings/hashes in PYTHON (currently run in JS)
 * Reorganise code structure in separate files (main.py is merely a test file, a sketch of sorts if you will)
 * Consider using a proxy to operate remotely without having to SSH into local machines
 * Consider using BURP to intercept traffic and analyze requests (maybe before rewriting the enc. algo.; there might be a workaround this thing)
